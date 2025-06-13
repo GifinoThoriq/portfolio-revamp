@@ -4,9 +4,11 @@
 
 html,
 body {
-  @apply bg-white dark:bg-gray-950;
+  scroll-behavior: smooth;
+  background: #f5f5f5;
+  /* @apply bg-white dark:bg-gray-950;
 
   @media (prefers-color-scheme: dark) {
     color-scheme: dark;
-  }
+  } */
 }
