@@ -127,7 +127,7 @@ export default function Index() {
 
 
       {/* MAIN TITLE */}
-      <div className="px-36 text-8xl font-instrument font-thin mt-16 min-h-[600px]">
+      <div className="px-36 text-8xl font-instrument font-thin mt-16 min-h-[560px]">
 
         <div className="flex ml-4 items-center">
           <img ref={circleRef} src="/images/stars.png" className="w-[80px] h-full mr-4"/>
@@ -148,7 +148,7 @@ export default function Index() {
           muted
           loop
           playsInline
-          className="w-[800px] h-auto me-auto rounded"
+          className="w-[100%] h-auto me-auto rounded"
         >
           <source src="/portfolio.mp4" type="video/mp4" />
           Your browser does not support the video tag.
@@ -157,7 +157,7 @@ export default function Index() {
       <div ref={descContainerRef} className="px-36 my-12 flex">
         <div className="basis-1/2">
         </div>
-        <p ref={descRef} className="basis-1/2 text-xl">I'm a frontend-focused Software Engineer with solid experience in both web and mobile projects. I care about writing clean code, building user-friendly interfaces, and creating things that work well and scale. I enjoy collaborating with others and always try to keep learning and improving.</p>
+        <p ref={descRef} className="basis-1/2 text-xl" style={{lineHeight: '16px'}}>I'm a frontend-focused Software Engineer with solid experience in both web and mobile projects. I care about writing clean code, building user-friendly interfaces, and creating things that work well and scale. I enjoy collaborating with others and always try to keep learning and improving.</p>
       </div>
     </div>
   );
