@@ -12,3 +12,9 @@ body {
     color-scheme: dark;
   } */
 }
+
+.line {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 7px;
+}
