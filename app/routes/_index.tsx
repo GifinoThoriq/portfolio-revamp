@@ -144,13 +144,6 @@ export default function Index() {
       mask: 'lines',
     })
 
-    const splitDesc = SplitText.create(descRef.current, {
-      type: "words, lines",
-      linesClass: "line",
-      autoSplit: true,
-      mask: 'lines'
-    })
-
     const ctx = gsap.context(() => {
 
       gsap.from(descRef.current, {
@@ -250,7 +243,7 @@ export default function Index() {
         </video>
       </div>
       <div ref={descContainerRef} className="px-4 my-12 flex z-0">
-        <p ref={descRef} className="text-xl w-full" style={{lineHeight: '16px'}}>I'm a frontend-focused Software Engineer with solid experience in both web and mobile projects. I care about writing clean code, building user-friendly interfaces, and creating things that work well and scale. I enjoy collaborating with others and always try to keep learning and improving.</p>
+        <p ref={descRef} className="text-xl w-full" style={{lineHeight: '28px'}}>I'm a frontend-focused Software Engineer with solid experience in both web and mobile projects. I care about writing clean code, building user-friendly interfaces, and creating things that work well and scale. I enjoy collaborating with others and always try to keep learning and improving.</p>
       </div>
 
       {/* WORK EXPERIENCES */}
@@ -287,18 +280,7 @@ export default function Index() {
       </div>
 
        {/* FOOTER */}
-      <div className="my-12 flex justify-between items-end">
-        <div>
-          <img src="/images/logo.png" className="w-[100px] mb-4" />
-          <h4 className="text-xl font-semibold">Gifino Thoriq &#169;</h4>
-          <h4>All Right Reserved</h4>
-        </div>
-        <div className="flex gap-6">
-            <h3 className="text-xl font-semibold hover:text-neutral-400 cursor-pointer" onClick={() => window.open('https://www.linkedin.com/in/gifino-thoriq/', '_blank')}>Linkedin</h3>
-            <h3 className="text-xl font-semibold hover:text-neutral-400 cursor-pointer" onClick={() => window.open('https://github.com/GifinoThoriq', '_blank')}>Github</h3>
-            <h3 className="text-xl font-semibold hover:text-neutral-400 cursor-pointer">My Resume</h3>
-          </div>
-      </div>
+
     </div>
   );
 }
