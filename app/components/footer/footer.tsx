@@ -5,7 +5,7 @@ export default function Footer(){
                 <div>
                 <img src="/images/logo.png" className="w-[100px] mb-4" />
                 <h4 className="text-xl font-semibold">Gifino Thoriq &#169;</h4>
-                <h4>All Right Reserved</h4>
+                <h4>All Rights Reserved</h4>
                 </div>
                 <div className="flex gap-6">
                     <h3 className="text-xl font-semibold hover:text-neutral-400 cursor-pointer" onClick={() => window.open('https://www.linkedin.com/in/gifino-thoriq/', '_blank')}>Linkedin</h3>
