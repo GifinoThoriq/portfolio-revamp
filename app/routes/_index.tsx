@@ -3,7 +3,6 @@ import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useRef } from "react";
-import { useNavigate } from "@remix-run/react";
 
 interface IWorkData{
   works: {
@@ -16,6 +15,8 @@ interface IWorkData{
     }[]
   }[]
 }
+
+
 
 export const meta: MetaFunction = () => {
   return [
@@ -100,8 +101,6 @@ export const workData = (): IWorkData => {
 }
 
 export default function Index() {
-
-  const navigate = useNavigate();
 
   const textRef1 = useRef(null);
   const textRef2 = useRef(null);
