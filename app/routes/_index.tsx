@@ -2,7 +2,8 @@ import type { MetaFunction } from "@remix-run/node";
 import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { useWindowWidth } from "~/hooks/useWindowWidth";
 
 interface IWorkData{
   works: {
@@ -117,6 +118,9 @@ export default function Index() {
 
   const videoContainerRef = useRef(null);
 
+  const [windowWidth, setWindowWidth] = useState<number | null>(null);
+
+  //ANIMATION
   useEffect(() => {
 
     gsap.registerPlugin(SplitText);
@@ -151,7 +155,7 @@ export default function Index() {
           start: "top 80%",
         },
         duration: 2,
-        y: -400,
+        y: -100,
         opacity: 0,
         ease: "expo.out",
       })
@@ -192,6 +196,8 @@ export default function Index() {
         ease: "expo.out",
       });
 
+      if (!videoContainerRef.current) return;
+
       gsap.to(videoContainerRef.current, {
         paddingLeft: 12,
         paddingRight: 12,
@@ -207,52 +213,83 @@ export default function Index() {
     }, [containerRef, descContainerRef, videoContainerRef]);
 
     return () => ctx.revert(); // clean up on unmount
-  }, []);
+  }, [windowWidth]);
+
+  const width = useWindowWidth();
+
+  //width handler
+  useEffect(() => {
+    width !== null ? setWindowWidth(width) : setWindowWidth(null);
+  },[width])
+
+
 
   return (
     <div ref={containerRef} className="max-w-7xl mx-auto">
       {/* NAVBAR */}
 
       {/* MAIN TITLE */}
-      <div className="px-36 text-8xl font-instrument mt-16 font-thin min-h-[620px]">
+      <div className="xl:px-36 px-4 lg:text-8xl md:text-6xl text-4xl font-instrument mt-16 font-thin lg:min-h-[620px] min-h-[400px]">
 
         <div className="flex ml-4 items-center">
-          <img ref={circleRef} src="/images/stars.png" className="w-[80px] h-full mr-4"/>
-          <span ref={textRef1}>I'm Gifino Thoriq</span>
+          <img ref={circleRef} src="/images/stars.png" className="md:w-[80px] w-[48px] h-full mr-4"/>
+          <span ref={textRef1} className="md:mt-0 mt-4">I'm Gifino Thoriq</span>
         </div>
-        <div ref={textRef2} className="flex ml-32">Software Engineer</div>
-        <div ref={textRef3} className="flex">Based on</div>
-        <div className="flex ml-16 items-center">
-          <img ref={arrowRef} src="/images/arrow.png" className="mr-4 w-[72px] h-full -scale-y-[1]"/>
+        <div ref={textRef2} className="flex md:ml-32 ml-4">Software Engineer</div>
+        <div ref={textRef3} className="flex md:ml-0 ml-4">Based on</div>
+        <div className="flex md:ml-16 ml-4 items-center">
+          <img ref={arrowRef} src="/images/arrow.png" className="mr-4 md:w-[72px] w-[40px] h-full -scale-y-[1]"/>
           <span ref={textRef4}>Jakarta Indonesia</span>
         </div>
       </div>
 
       {/* SLIGHT PORTFOLIO */}
-      <div ref={videoContainerRef} className="px-48 flex items-start justify-start z-10 relative">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="w-[100%] h-auto me-auto rounded"
-        >
-          <source src="/portfolio.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      </div>
+
+      {windowWidth !== null && windowWidth >= 768 
+        ? 
+        <>
+          <div ref={videoContainerRef} className="px-48 flex items-start justify-start z-10 relative">
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="w-[100%] h-auto me-auto rounded"
+            >
+              <source src="/portfolio.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </> 
+        : 
+        <>
+          <div>
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="w-[100%] h-auto"
+            >
+              <source src="/portfolio.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </>
+      }
+
       <div ref={descContainerRef} className="px-4 my-12 flex z-0">
-        <p ref={descRef} className="text-xl w-[60%]" style={{lineHeight: '28px'}}>I'm a frontend-focused Software Engineer with solid experience in both web and mobile projects. I care about writing clean code, building user-friendly interfaces, and creating things that work well and scale. I enjoy collaborating with others and always try to keep learning and improving.</p>
+        <p ref={descRef} className="md:text-xl text-lg md:w-[60%]" style={{lineHeight: '28px'}}>I'm a frontend-focused Software Engineer with solid experience in both web and mobile projects. I care about writing clean code, building user-friendly interfaces, and creating things that work well and scale. I enjoy collaborating with others and always try to keep learning and improving.</p>
       </div>
 
       {/* WORK EXPERIENCES */}
       <div className="px-4 mt-20">
-       <h1 className="font-instrument text-5xl font-semibold">Latest Work Experience</h1>
+       <h1 className="font-instrument md:text-5xl text-4xl font-semibold">Latest Work Experience</h1>
        {
          workData().works.map((work, index) => {
            return (
             index !== 0 ? null :
-            <div className="flex mt-12" key={index}>
+            <div className="flex md:flex-row flex-col mt-12" key={index}>
               <div className="basis-1/2">
                 <h2 className="text-3xl font-medium">{work.company_name}</h2>
                 <h4>{work.location}</h4>
