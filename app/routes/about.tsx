@@ -5,12 +5,13 @@ import SplitText from "gsap/SplitText";
 export default function About() {
 
   const technicals = [
-    'Angular/ Angular Ionic',
-    'Vue/ Vue Ionic',
-    'React',
+    'Angular / Angular Ionic',
+    'Vue / Vue Ionic',
+    'React / Next / Remix',
     'Wordpress Elementor',
     'Git',
-    'Capacitor'
+    'Capacitor',
+    'Laravel'
   ]
 
   const skills = [

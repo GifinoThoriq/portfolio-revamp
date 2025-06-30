@@ -220,7 +220,7 @@ export default function Index() {
           <img ref={circleRef} src="/images/stars.png" className="w-[80px] h-full mr-4"/>
           <span ref={textRef1}>I'm Gifino Thoriq</span>
         </div>
-        <div ref={textRef2} className="flex ml-32">Frontend Engineer</div>
+        <div ref={textRef2} className="flex ml-32">Software Engineer</div>
         <div ref={textRef3} className="flex">Based on</div>
         <div className="flex ml-16 items-center">
           <img ref={arrowRef} src="/images/arrow.png" className="mr-4 w-[72px] h-full -scale-y-[1]"/>
@@ -242,7 +242,7 @@ export default function Index() {
         </video>
       </div>
       <div ref={descContainerRef} className="px-4 my-12 flex z-0">
-        <p ref={descRef} className="text-xl w-full" style={{lineHeight: '28px'}}>I'm a frontend-focused Software Engineer with solid experience in both web and mobile projects. I care about writing clean code, building user-friendly interfaces, and creating things that work well and scale. I enjoy collaborating with others and always try to keep learning and improving.</p>
+        <p ref={descRef} className="text-xl w-[60%]" style={{lineHeight: '28px'}}>I'm a frontend-focused Software Engineer with solid experience in both web and mobile projects. I care about writing clean code, building user-friendly interfaces, and creating things that work well and scale. I enjoy collaborating with others and always try to keep learning and improving.</p>
       </div>
 
       {/* WORK EXPERIENCES */}
