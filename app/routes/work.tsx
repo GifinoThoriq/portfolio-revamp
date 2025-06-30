@@ -160,19 +160,19 @@ export default function Work(){
                 </div>
             </div>
 
-            <div className="max-w-7xl mx-auto my-32">
+            <div className="max-w-7xl mx-auto my-32 lg:px-0 px-4">
 
                 {workData().works.map((work, index) => (
                     <div 
                         key={index} 
                         className={`mt-12 ${index === 0 ? 'border-t-0' : 'border-t-[1px] border-neutral-400 border-solid'} pt-12`}
                     >
-                        <div className="flex justify-between items-start">
+                        <div className="flex sm:flex-row flex-col justify-between items-start">
                             <div className="basis-1/2">
                                 <h1 className="text-3xl font-semibold">{work.company_name}</h1>
                                 <h1 className="text-lg font-normal">{work.location}</h1>
                             </div>
-                            <div className="basis-1/2">
+                            <div className="basis-1/2 sm:mt-0 mt-4">
                                 <div>
                                     <h1 className="text-lg font-semibold">{work.role}</h1>
                                     <h1 className="text-lg font-normal">{work.duration}</h1>
