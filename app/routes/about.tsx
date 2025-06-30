@@ -71,7 +71,7 @@ export default function About() {
             <img ref={circleRef} src="/images/stars.png" className="w-[60px] h-full mr-4"/> 
           </div>
 
-          <div className="flex">
+          <div className="flex lg:flex-row flex-col">
             <div className="basis-2/3 flex justify-end mt-12">
               <div className="max-w-md">
                 <p className="text-xl font-light">
@@ -79,16 +79,16 @@ export default function About() {
                 </p>
               </div>
             </div>
-            <div className="basis-1/3">
+            <div className="basis-1/3 lg:mt-0 mt-12">
               <img ref={imageRef} src="/images/main-image.jpg" className="w-[300px] h-full rounded-xl ml-auto" />  
             </div>
           </div>
 
-          <div className="flex mt-20">
+          <div className="flex lg:flex-row flex-col mt-20">
             <div className="basis-1/2">
               <h1 className="text-4xl font-medium">Technical</h1>
             </div>
-            <div className="basis-1/2">
+            <div className="basis-1/2 lg:mt-0 mt-12">
               {
                 technicals.map((tech, index) => {
                   return (
@@ -98,11 +98,11 @@ export default function About() {
               }
             </div>
           </div>
-          <div className="flex mt-20">
+          <div className="flex lg:flex-row flex-col mt-20">
             <div className="basis-1/2">
               <h1 className="text-4xl font-medium">Skills</h1>
             </div>
-            <div className="basis-1/2">
+            <div className="basis-1/2 lg:mt-0 mt-12">
               {
                 skills.map((skill, index) => {
                   return (
