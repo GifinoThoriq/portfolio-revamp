@@ -3,10 +3,10 @@
   "private": true,
   "sideEffects": false,
   "scripts": {
-    "build": "remix vite:build",
-    "dev": "remix vite:dev",
+    "build": "remix build",
+    "dev": "remix dev",
     "lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
-    "start": "remix-serve ./build/server/index.js",
+    "start": "vercel dev",
     "typecheck": "tsc"
   },
   "dependencies": {
@@ -20,7 +20,6 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@netlify/remix-adapter": "^2.6.1",
     "@remix-run/dev": "^2.16.6",
     "@types/react": "^18.2.20",
     "@types/react-dom": "^18.2.7",
