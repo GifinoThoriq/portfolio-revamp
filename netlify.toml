@@ -1,9 +1,0 @@
-[build]
-  command = "npm run build"
-  publish = "public"
-  functions = ".netlify/functions-internal"
-
-[[redirects]]
-  from = "/*"
-  to = "/.netlify/functions/remix-server"
-  status = 200
